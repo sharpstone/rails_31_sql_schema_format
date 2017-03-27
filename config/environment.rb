@@ -1,2 +1,5 @@
-require_relative 'application'
-Rails.application.initialize!
+# Load the rails application
+require File.expand_path('../application', __FILE__)
+
+# Initialize the rails application
+MicroRails::Application.initialize!

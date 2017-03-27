@@ -1,9 +1,15 @@
-require_relative 'boot'
+require File.expand_path('../boot', __FILE__)
 require 'rails/all'
-Bundler.require(*Rails.groups)
+if defined?(Bundler)
+  Bundler.require(*Rails.groups(:assets => %w(development test)))
+end
 
 module MicroRails
   class Application < Rails::Application
     config.active_record.schema_format = :sql
+    config.encoding = "utf-8"
+    config.filter_parameters += [:password]
+    config.assets.enabled = true
+    config.assets.version = '1.0'
   end
 end
