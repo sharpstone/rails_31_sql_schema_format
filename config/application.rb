@@ -4,6 +4,6 @@ Bundler.require(*Rails.groups)
 
 module MicroRails
   class Application < Rails::Application
-    config.active_record.schema_format = :ruby
+    config.active_record.schema_format = :sql
   end
 end
